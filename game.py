@@ -38,6 +38,9 @@ class Board(object):
         else:
             return False
 
+    def get_feature_vec(self, player):
+        return np.ravel(self.board) * player
+
     def check_win(self):
         col_sum = np.sum(self.board, axis=1)
         row_sum = np.sum(self.board, axis=0)
@@ -62,12 +65,15 @@ if __name__ == '__main__':
     RA1 = random_agent()
     RA2 = random_agent()
     while(board.check_win() == 0 and np.any(board.board == 0)):
+        print(board.get_feature_vec(board.tic))
         while board.play_tac(*(RA1.get_random_move())) is False:
-            board.board == 0
+            pass
         if not np.any(board.board == 0):
             break
+        print(board.get_feature_vec(board.tac))
         while board.play_tic(*(RA2.get_random_move())) is False:
-            board.print_board()
+            pass
+        board.print_board()
 
     board.print_board()
     print(board.check_win())
