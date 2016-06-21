@@ -1,5 +1,6 @@
 from __future__ import print_function
 from random_agent import random_agent
+from policy_agent import policy_agent
 import numpy as np
 import pandas as pd
 
@@ -63,15 +64,24 @@ class Board(object):
 if __name__ == '__main__':
     board = Board()
     RA1 = random_agent()
-    RA2 = random_agent()
+    RA2 = policy_agent(10, 0)
     while(board.check_win() == 0 and np.any(board.board == 0)):
+        episodes = 0
         print(board.get_feature_vec(board.tic))
-        while board.play_tac(*(RA1.get_random_move())) is False:
+        while board.play_tac(*(RA1.get_move())) is False:
+            episodes = episodes + 1
+            if episodes == 9:
+                break
             pass
         if not np.any(board.board == 0):
             break
+        episodes = 0
         print(board.get_feature_vec(board.tac))
-        while board.play_tic(*(RA2.get_random_move())) is False:
+        while board.play_tic(*(RA2.get_move(
+                board.get_feature_vec(board.tac)))) is False:
+            if episodes == 9:
+                break
+            episodes = episodes + 1
             pass
         board.print_board()
 
