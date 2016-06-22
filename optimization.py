@@ -3,7 +3,7 @@ import theano.tensor as T
 floatX = float
 
 
-def Adam(grads, params, lr=0.000002, b1=0.01, b2=0.00001, e=1e-8):
+def Adam(grads, params, lr=0.0000001, b1=0.1, b2=0.001, e=1e-8):
     updates = []
     i = theano.shared(floatX(0.))
     i_t = i + 1.
@@ -16,7 +16,7 @@ def Adam(grads, params, lr=0.000002, b1=0.01, b2=0.00001, e=1e-8):
         m_t = (b1 * g) + ((1. - b1) * m)
         v_t = (b2 * T.sqr(g)) + ((1. - b2) * v)
         g_t = m_t / (T.sqrt(v_t) + e)
-        p_t = p + (lr_t * g_t)
+        p_t = p - (lr_t * g_t)
         updates.append((m, m_t))
         updates.append((v, v_t))
         updates.append((p, p_t))

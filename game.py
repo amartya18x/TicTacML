@@ -71,6 +71,7 @@ if __name__ == '__main__':
         while board.play_tac(*(RA1.get_move())) is False:
             episodes = episodes + 1
             if episodes == 9:
+                print("Doomed")
                 break
             pass
         if not np.any(board.board == 0):
@@ -80,6 +81,7 @@ if __name__ == '__main__':
         while board.play_tic(*(RA2.get_move(
                 board.get_feature_vec(board.tac)))) is False:
             if episodes == 9:
+                print("Doomed")
                 break
             episodes = episodes + 1
             pass
