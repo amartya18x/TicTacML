@@ -15,4 +15,4 @@
 #Current Version
 
 __Right now it supports training of an Policy Agent with a Random Agent and then beating it__
-[Progress](progress.png)
+[Progress](https://raw.githubusercontent.com/rewonc/pastalog/master/progress.png "Progress")
