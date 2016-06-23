@@ -13,7 +13,7 @@ rng = theano.tensor.shared_randomstreams.RandomStreams(2)
 
 class policy_agent(object):
     '''
-    This is the policy agent class. It follows the 
+    This is the policy agent class. It follows the
     policy gradient theorem to select policy from the action space.
     '''
 
