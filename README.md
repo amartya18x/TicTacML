@@ -19,7 +19,7 @@ As long as drawing of the game was not being penalized, the Policy agent didnt l
 
 ![Progress](https://raw.githubusercontent.com/amartya18x/TicTacML/master/progress.png "Progress")
 
-__Added them to play against each other __
+__Added them to play against each other__
 On retaining the penalty for drawing the game, the number of draws eventually went to zeros and both the players won equal number of games. So, I decided to see what happens if I remove the penalty from draws and then they decided to draw all the games. Interesting eh ?
 
 ![All Draws](https://raw.githubusercontent.com/amartya18x/TicTacML/master/draw.png "Draws")
